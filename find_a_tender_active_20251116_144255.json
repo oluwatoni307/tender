@@ -1,0 +1,443 @@
+[
+  {
+    "ocid": "ocds-h6vhtk-058d2d",
+    "id": "074153-2025",
+    "date": "2025-11-14T16:23:37Z",
+    "tag": [
+      "tender"
+    ],
+    "description": "The framework agreement will be available for use by the Scottish Ministers (including Agencies), Scottish Non-Departmental Public Bodies, offices in the Scottish Administration which are not ministerial offices, cross-border public authorities within the meaning of section 88(5) of the Scotland Act 1998, the Scotland Office, the Scottish Parliamentary Corporate Body, councils constituted under section 2 of the Local Government etc. (Scotland) Act 1994, bodies registered as social landlords under the Housing (Scotland) Act 2001, Scottish health boards or special health boards, all NHS Scotland, Student Loans Company Limited, the Commissioner of Northern Lighthouse operating as the Northern Lighthouse Board, Scottish Futures Trust, Equality and Human Rights Commission, Zero Waste Scotland, Business Stream Ltd, the Business Gateway National Unit at the Convention of Scottish Local Authorities, further or higher education institutions being fundable bodies within the meaning of section 6 of the further and Higher Education (Scotland) Act 2005, any public body established by or under the Scotland Act 1998 or any Act of the Scottish Parliament, any association of or formed by one or more of the foregoing, bodies financed wholly or mainly by one or more of the foregoing, bodies subject to management supervision by one or more of the foregoing and bodies more than half of the board of directors or members of which, or, in the case of a group of individuals, more than half of those individuals, being appointed by one or more of the foregoing. In addition to the contracting authorities listed, the framework agreement will be available to charities entered on the Scottish Charity Register and voluntary organisations entered on the Membership Database of the Scottish Council for Voluntary Organisations.\nThe buyer is using PCS-Tender to conduct this ITT exercise. The Project code is 61721. For more information see: http://www.publiccontractsscotland.gov.uk/info/InfoCentre.aspx?ID=2343\nCommunity benefits are included in this requirement. For more information see: https://www.gov.scot/policies/public-sector-procurement/community-benefits-in-procurement/\nA summary of the expected community benefits has been provided as follows:\nThe winning bidder(s) will discuss the content of their Community Benefit proposal and agree a plan for the delivery of the agreed community benefits which will become a condition of the contract.\n(SC Ref:815989)",
+    "initiationType": "tender",
+    "tender": {
+      "id": "SP-25-07",
+      "legalBasis": {
+        "id": "32014L0024",
+        "scheme": "CELEX"
+      },
+      "title": "Procurement, Commercial and Sustainable Training Framework",
+      "status": "active",
+      "classification": {
+        "scheme": "CPV",
+        "id": "80000000",
+        "description": "Education and training services"
+      },
+      "mainProcurementCategory": "services",
+      "description": "Scottish Government has the requirement to place a Procurement Commercial and Sustainability Training Framework on behalf of the Scottish Ministers to support the professionalisation of public procurement in Scotland.",
+      "value": {
+        "amount": 550000,
+        "currency": "GBP"
+      },
+      "lotDetails": {
+        "maximumLotsBidPerSupplier": Infinity
+      },
+      "lots": [
+        {
+          "id": "1",
+          "title": "Procurement and Commercial Training",
+          "description": "The Scottish Procurement and Property Directorate (SPPD) has a requirement to place a Procurement Commercial and Sustainability Training Framework on behalf of the Scottish Ministers to support the professionalisation of public procurement in Scotland.\nSERVICES REQUIRED:\nWe are placing a training and development framework to provide Scottish Government and other public bodies in Scotland with tailored learning and development, grounded in the Scottish public procurement context, to build capability in the following areas.\nLot 1: Procurement and Commercial\nPublic procurement skills across a broad range of topics covering goods, services and works, including current legislation and policy relevant to Scotland, building commercial acumen, and procurement and supply chain specialisms.",
+          "awardCriteria": {
+            "criteria": [
+              {
+                "name": "Quality",
+                "type": "quality",
+                "description": "60"
+              },
+              {
+                "type": "price",
+                "description": "40"
+              }
+            ]
+          },
+          "value": {
+            "amount": 275000,
+            "currency": "GBP"
+          },
+          "contractPeriod": {
+            "durationInDays": 720
+          },
+          "hasRenewal": true,
+          "renewal": {
+            "description": "Option to extend by two 12-month periods."
+          },
+          "submissionTerms": {
+            "variantPolicy": "notAllowed"
+          },
+          "hasOptions": false,
+          "status": "active"
+        },
+        {
+          "id": "2",
+          "title": "Sustainable and Climate Procurement Training",
+          "description": "The Scottish Procurement and Property Directorate (SPPD) has a requirement to place a Procurement Commercial and Sustainability Training Framework on behalf of the Scottish Ministers to support the professionalisation of public procurement in Scotland.\nSERVICES REQUIRED:\nWe are placing a training and development framework to provide Scottish Government and other public bodies in Scotland with tailored learning and development, grounded in the Scottish public procurement context, to build capability in the following areas.\nLot 2: Sustainable and Climate Change Procurement Training\nPublic procurement skills specifically related to the Sustainable Procurement Duty and its associated tools and guidance under the Procurement Reform (Scotland) Act 2014 (and any subsequent legislation), with particular regard to improving procurement capability and embedding sustainability into procurement processes.",
+          "awardCriteria": {
+            "criteria": [
+              {
+                "name": "Quality",
+                "type": "quality",
+                "description": "60"
+              },
+              {
+                "type": "price",
+                "description": "40"
+              }
+            ]
+          },
+          "value": {
+            "amount": 275000,
+            "currency": "GBP"
+          },
+          "contractPeriod": {
+            "durationInDays": 720
+          },
+          "hasRenewal": true,
+          "renewal": {
+            "description": "Option to extend by two 12-month periods."
+          },
+          "submissionTerms": {
+            "variantPolicy": "notAllowed"
+          },
+          "hasOptions": false,
+          "status": "active"
+        }
+      ],
+      "items": [
+        {
+          "id": "1",
+          "additionalClassifications": [
+            {
+              "scheme": "CPV",
+              "id": "80000000",
+              "description": "Education and training services"
+            },
+            {
+              "scheme": "CPV",
+              "id": "80430000",
+              "description": "Adult-education services at university level"
+            },
+            {
+              "scheme": "CPV",
+              "id": "80500000",
+              "description": "Training services"
+            },
+            {
+              "scheme": "CPV",
+              "id": "80532000",
+              "description": "Management training services"
+            }
+          ],
+          "deliveryAddresses": [
+            {
+              "region": "UKM"
+            }
+          ],
+          "relatedLot": "1"
+        },
+        {
+          "id": "2",
+          "additionalClassifications": [
+            {
+              "scheme": "CPV",
+              "id": "80000000",
+              "description": "Education and training services"
+            },
+            {
+              "scheme": "CPV",
+              "id": "80430000",
+              "description": "Adult-education services at university level"
+            },
+            {
+              "scheme": "CPV",
+              "id": "80500000",
+              "description": "Training services"
+            },
+            {
+              "scheme": "CPV",
+              "id": "80532000",
+              "description": "Management training services"
+            }
+          ],
+          "deliveryAddresses": [
+            {
+              "region": "UKM"
+            }
+          ],
+          "relatedLot": "2"
+        }
+      ],
+      "submissionMethod": [
+        "electronicSubmission"
+      ],
+      "submissionMethodDetails": "https://www.publictendersscotland.publiccontractsscotland.gov.uk/esop/pts-host/public/pts/web/login.html",
+      "communication": {
+        "atypicalToolUrl": "https://www.publictendersscotland.publiccontractsscotland.gov.uk/esop/pts-host/public/pts/web/login.html"
+      },
+      "selectionCriteria": {
+        "criteria": [
+          {
+            "minimum": "SPD (SCOTLAND) 4B.5.1a,b AND 4B.5.2 \u2013 Insurance\nThe bidder confirms they already have or can commit to obtain, prior to the commencement of the contract, the levels of insurance cover indicated below:\nProfessional Indemnity: 2,000,000 GBP\nEmployer's Liability: in accordance with any legal obligation for the time being in force.\nPublic Liability: 5,000,000 GBP"
+          }
+        ]
+      },
+      "procurementMethod": "open",
+      "procurementMethodDetails": "Open procedure",
+      "techniques": {
+        "hasFrameworkAgreement": true,
+        "frameworkAgreement": {
+          "maximumParticipants": 2
+        }
+      },
+      "coveredBy": [
+        "GPA"
+      ],
+      "tenderPeriod": {
+        "endDate": "2025-12-15T17:00:00Z"
+      },
+      "submissionTerms": {
+        "languages": [
+          "en"
+        ]
+      },
+      "awardPeriod": {
+        "startDate": "2025-12-15T17:00:00Z"
+      },
+      "bidOpening": {
+        "date": "2025-12-15T17:00:00Z"
+      },
+      "hasRecurrence": false
+    },
+    "parties": [
+      {
+        "name": "Scottish Government",
+        "id": "GB-FTS-1538",
+        "identifier": {
+          "legalName": "Scottish Government"
+        },
+        "address": {
+          "streetAddress": "5 Atlantic Quay, 150 Broomielaw",
+          "locality": "Glasgow",
+          "region": "UKM",
+          "postalCode": "G2 8LU",
+          "countryName": "United Kingdom"
+        },
+        "contactPoint": {
+          "telephone": "+44 412425466",
+          "email": "Omar.Gibson@gov.scot",
+          "url": "https://www.publictendersscotland.publiccontractsscotland.gov.uk/esop/pts-host/public/pts/web/login.html"
+        },
+        "roles": [
+          "buyer",
+          "centralPurchasingBody"
+        ],
+        "details": {
+          "url": "http://www.scotland.gov.uk",
+          "buyerProfile": "https://www.publiccontractsscotland.gov.uk/search/Search_AuthProfile.aspx?ID=AA10482",
+          "classifications": [
+            {
+              "scheme": "TED_CA_TYPE",
+              "id": "BODY_PUBLIC",
+              "description": "Body governed by public law"
+            },
+            {
+              "scheme": "COFOG",
+              "id": "09",
+              "description": "Education"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Edinburgh Sheriff Court",
+        "id": "GB-FTS-1033",
+        "identifier": {
+          "legalName": "Edinburgh Sheriff Court"
+        },
+        "address": {
+          "locality": "Edinburgh",
+          "countryName": "United Kingdom"
+        },
+        "roles": [
+          "reviewBody"
+        ]
+      }
+    ],
+    "buyer": {
+      "id": "GB-FTS-1538",
+      "name": "Scottish Government"
+    },
+    "links": [
+      {
+        "rel": "canonical",
+        "href": "https://api.publiccontractsscotland.gov.uk/v1/Notice?id=ocds-r6ebe6-0000808045"
+      }
+    ],
+    "language": "en"
+  },
+  {
+    "ocid": "ocds-h6vhtk-05e1d5",
+    "id": "074123-2025",
+    "date": "2025-11-14T15:51:02Z",
+    "tag": [
+      "tender"
+    ],
+    "description": "NOTE: To register your interest in this notice and obtain any additional information please visit the Public Contracts Scotland Web Site at https://www.publiccontractsscotland.gov.uk/Search/Search_Switch.aspx?ID=815966.\nThe buyer has indicated that it will accept electronic responses to this notice via the Postbox facility. A user guide is available at https://www.publiccontractsscotland.gov.uk/sitehelp/help_guides.aspx.\nSuppliers are advised to allow adequate time for uploading documents and to dispatch the electronic response well in advance of the closing time to avoid any last minute problems.\nThe Contracting Authority does not intend to include any community benefit requirements in this contract for the following reason:\nn/a\n(SC Ref:815966)",
+    "initiationType": "tender",
+    "tender": {
+      "id": "ocds-h6vhtk-05e1d5",
+      "legalBasis": {
+        "id": "32014L0025",
+        "scheme": "CELEX"
+      },
+      "title": "Aberdeen South Harbour Border Force Facility",
+      "status": "active",
+      "classification": {
+        "scheme": "CPV",
+        "id": "45000000",
+        "description": "Construction work"
+      },
+      "mainProcurementCategory": "works",
+      "description": "The ITT is for the construction of a new facility for Border Force UK freight examination and staff accommodation at Aberdeen South Harbour.\nThe works are to provide a single storey office facility and freight examination shed with associated external works and service connections.",
+      "value": {
+        "amount": 1500000,
+        "currency": "GBP"
+      },
+      "lots": [
+        {
+          "id": "1",
+          "description": "Request is for the construction of a new Border Force examination and inspection facility at Aberdeen South Harbour",
+          "awardCriteria": {
+            "criteria": [
+              {
+                "name": "Technical",
+                "type": "quality",
+                "description": "40"
+              },
+              {
+                "type": "price",
+                "description": "60"
+              }
+            ]
+          },
+          "value": {
+            "amount": 1500000,
+            "currency": "GBP"
+          },
+          "contractPeriod": {
+            "durationInDays": 360
+          },
+          "hasRenewal": false,
+          "submissionTerms": {
+            "variantPolicy": "notAllowed"
+          },
+          "hasOptions": false,
+          "status": "active"
+        }
+      ],
+      "items": [
+        {
+          "id": "1",
+          "deliveryAddresses": [
+            {
+              "region": "UKM50"
+            }
+          ],
+          "relatedLot": "1"
+        }
+      ],
+      "submissionMethod": [
+        "electronicSubmission"
+      ],
+      "submissionMethodDetails": "http://www.publiccontractsscotland.gov.uk",
+      "documents": [
+        {
+          "documentType": "economicSelectionCriteria",
+          "id": "economic"
+        },
+        {
+          "documentType": "technicalSelectionCriteria",
+          "id": "technical"
+        }
+      ],
+      "procurementMethod": "open",
+      "procurementMethodDetails": "Open procedure",
+      "tenderPeriod": {
+        "endDate": "2026-01-09T12:00:00Z"
+      },
+      "submissionTerms": {
+        "languages": [
+          "en"
+        ],
+        "bidValidityPeriod": {
+          "endDate": "2026-05-08T23:59:59+01:00"
+        }
+      },
+      "awardPeriod": {
+        "startDate": "2026-01-09T12:00:00Z"
+      },
+      "bidOpening": {
+        "date": "2026-01-09T12:00:00Z"
+      },
+      "hasRecurrence": false
+    },
+    "parties": [
+      {
+        "name": "Port of Aberdeen",
+        "id": "GB-FTS-59907",
+        "identifier": {
+          "legalName": "Port of Aberdeen"
+        },
+        "address": {
+          "streetAddress": "16 Regent Quay",
+          "locality": "Aberdeen",
+          "region": "UKM50",
+          "postalCode": "AB11 5SS",
+          "countryName": "United Kingdom"
+        },
+        "contactPoint": {
+          "name": "Hazel Matthew",
+          "telephone": "+44 1224597000",
+          "email": "h-matthew@portofaberdeen.co.uk",
+          "faxNumber": "+44 1224597000",
+          "url": "http://www.publiccontractsscotland.gov.uk"
+        },
+        "roles": [
+          "buyer"
+        ],
+        "details": {
+          "url": "http://www.portofaberdeen.co.uk/",
+          "buyerProfile": "https://www.publiccontractsscotland.gov.uk/search/Search_AuthProfile.aspx?ID=AA13823",
+          "classifications": [
+            {
+              "scheme": "TED_CE_ACTIVITY",
+              "description": "Port Authority"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Aberdeen Sheriff Court",
+        "id": "GB-FTS-5546",
+        "identifier": {
+          "legalName": "Aberdeen Sheriff Court"
+        },
+        "address": {
+          "locality": "Aberdeen",
+          "countryName": "United Kingdom"
+        },
+        "roles": [
+          "reviewBody"
+        ]
+      }
+    ],
+    "buyer": {
+      "id": "GB-FTS-59907",
+      "name": "Port of Aberdeen"
+    },
+    "links": [
+      {
+        "rel": "canonical",
+        "href": "https://api.publiccontractsscotland.gov.uk/v1/Notice?id=ocds-r6ebe6-0000815966"
+      }
+    ],
+    "language": "en"
+  }
+]

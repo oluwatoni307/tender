@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Tenders Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #1a202c;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Search and Filters */
+        .controls {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 10px 20px;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-chip:hover {
+            background: #edf2f7;
+            border-color: #cbd5e0;
+        }
+
+        .filter-chip.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        /* Feed Container */
+        .feed {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .feed-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .sort-select {
+            padding: 10px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        /* Tender Cards */
+        .tender-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tender-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tender-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .tender-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .tender-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .tender-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+            flex: 1;
+        }
+
+        .source-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+
+        .source-cf {
+            background: #e6fffa;
+            color: #047857;
+        }
+
+        .source-ft {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .tender-org {
+            color: #718096;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tender-meta {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .meta-icon {
+            width: 18px;
+            height: 18px;
+            opacity: 0.6;
+        }
+
+        .deadline-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .deadline-urgent {
+            background: #fee;
+            color: #c53030;
+        }
+
+        .deadline-soon {
+            background: #fef5e7;
+            color: #d97706;
+        }
+
+        .deadline-normal {
+            background: #f0fdf4;
+            color: #15803d;
+        }
+
+        .value-amount {
+            font-weight: 600;
+            color: #3b82f6;
+        }
+
+        /* Expandable Details */
+        .tender-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .tender-card.expanded .tender-details {
+            max-height: 500px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .detail-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #4a5568;
+            min-width: 120px;
+        }
+
+        .detail-value {
+            color: #718096;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #a0aec0;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .empty-state-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .spinner {
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats {
+                gap: 10px;
+            }
+
+            .stat-card {
+                flex: 1;
+                min-width: 140px;
+            }
+
+            .tender-header {
+                flex-direction: column;
+            }
+
+            .source-badge {
+                margin-left: 0;
+                margin-top: 10px;
+                align-self: flex-start;
+            }
+
+            .tender-meta {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🇬🇧 UK Tenders Dashboard</h1>
+            <p style="color: #718096; font-size: 1rem;">Live opportunities from Contracts Finder & Find-a-Tender</p>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">{{ total }}</div>
+                    <div class="stat-label">Total Opportunities</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{ cf_count }}</div>
+                    <div class="stat-label">Contracts Finder</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{ ft_count }}</div>
+                    <div class="stat-label">Find-a-Tender</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search tenders by title, organization, or keywords...">
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-chip active" data-filter="all">All Tenders</div>
+                <div class="filter-chip" data-filter="cf">Contracts Finder</div>
+                <div class="filter-chip" data-filter="ft">Find-a-Tender</div>
+                <div class="filter-chip" data-filter="urgent">Closing Soon</div>
+                <div class="filter-chip" data-filter="high-value">High Value</div>
+            </div>
+        </div>
+
+        <!-- Feed -->
+        <div class="feed">
+            <div class="feed-header">
+                <div class="feed-title">Active Opportunities</div>
+                <select class="sort-select" id="sortSelect">
+                    <option value="newest">Newest First</option>
+                    <option value="deadline">Deadline (Urgent First)</option>
+                    <option value="value">Highest Value</option>
+                    <option value="title">Title (A-Z)</option>
+                </select>
+            </div>
+
+            <div id="tenderFeed">
+                <!-- Contracts Finder Tenders -->
+                {% for entry in cf %}
+                    {% set item = entry.get('item', {}) %}
+                    <div class="tender-card" data-source="cf" data-deadline="{{ item.get('deadlineDate', '') }}" data-value="{{ item.get('valueHigh', 0) }}" data-title="{{ item.get('title', '') }}">
+                        <div class="tender-header">
+                            <div style="flex: 1;">
+                                <div class="tender-title">{{ item.get('title', 'Untitled Tender') }}</div>
+                                <div class="tender-org">
+                                    <span>🏢</span>
+                                    <span>{{ item.get('organisationName', 'Unknown Organization') }}</span>
+                                </div>
+                            </div>
+                            <div class="source-badge source-cf">Contracts Finder</div>
+                        </div>
+
+                        <div class="tender-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">📅</span>
+                                <span>Deadline: {{ item.get('deadlineDate', 'Not specified') }}</span>
+                            </div>
+                            {% if item.get('valueLow') and item.get('valueHigh') %}
+                            <div class="meta-item">
+                                <span class="meta-icon">💰</span>
+                                <span class="value-amount">£{{ '{:,.0f}'.format(item.get('valueLow', 0)) }} - £{{ '{:,.0f}'.format(item.get('valueHigh', 0)) }}</span>
+                            </div>
+                            {% endif %}
+                            {% if item.get('suitableForSme') %}
+                            <div class="meta-item">
+                                <span>✓ SME Suitable</span>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="tender-details">
+                            {% if item.get('description') %}
+                            <div class="detail-row">
+                                <div class="detail-label">Description:</div>
+                                <div class="detail-value">{{ item.get('description', 'No description available') }}</div>
+                            </div>
+                            {% endif %}
+                            {% if item.get('region') %}
+                            <div class="detail-row">
+                                <div class="detail-label">Region:</div>
+                                <div class="detail-value">{{ item.get('region', 'N/A') }}</div>
+                            </div>
+                            {% endif %}
+                            {% if item.get('cpvCodes') %}
+                            <div class="detail-row">
+                                <div class="detail-label">CPV Codes:</div>
+                                <div class="detail-value">{{ item.get('cpvCodes', 'N/A') }}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <!-- Find-a-Tender Tenders -->
+                {% for rel in ft %}
+                    {% set t = rel.get('tender', {}) %}
+                    {% set buyer = rel.get('buyer', {}) %}
+                    <div class="tender-card" data-source="ft" data-deadline="{{ t.get('tenderPeriod', {}).get('endDate', '') }}" data-value="{{ t.get('value', {}).get('amount', 0) }}" data-title="{{ t.get('title', '') }}">
+                        <div class="tender-header">
+                            <div style="flex: 1;">
+                                <div class="tender-title">{{ t.get('title', 'Untitled Tender') }}</div>
+                                <div class="tender-org">
+                                    <span>🏢</span>
+                                    <span>{{ buyer.get('name', 'Unknown Buyer') }}</span>
+                                </div>
+                            </div>
+                            <div class="source-badge source-ft">Find-a-Tender</div>
+                        </div>
+
+                        <div class="tender-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">📅</span>
+                                <span>Deadline: {{ t.get('tenderPeriod', {}).get('endDate', 'Not specified') }}</span>
+                            </div>
+                            {% if t.get('value', {}).get('amount') %}
+                            <div class="meta-item">
+                                <span class="meta-icon">💰</span>
+                                <span class="value-amount">£{{ '{:,.0f}'.format(t.get('value', {}).get('amount', 0)) }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="tender-details">
+                            {% if t.get('description') %}
+                            <div class="detail-row">
+                                <div class="detail-label">Description:</div>
+                                <div class="detail-value">{{ t.get('description', 'No description available') }}</div>
+                            </div>
+                            {% endif %}
+                            {% if t.get('procurementMethod') %}
+                            <div class="detail-row">
+                                <div class="detail-label">Method:</div>
+                                <div class="detail-value">{{ t.get('procurementMethod', 'N/A') }}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if total == 0 %}
+            <div class="empty-state">
+                <div class="empty-state-icon">📭</div>
+                <div class="empty-state-text">No tenders found matching your criteria</div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const tenderCards = document.querySelectorAll('.tender-card');
+        const filterChips = document.querySelectorAll('.filter-chip');
+        const sortSelect = document.getElementById('sortSelect');
+
+        let currentFilter = 'all';
+
+        // Search
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filterAndSearch();
+        });
+
+        // Filter chips
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                filterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                currentFilter = chip.dataset.filter;
+                filterAndSearch();
+            });
+        });
+
+        // Sort
+        sortSelect.addEventListener('change', () => {
+            sortTenders();
+        });
+
+        // Click to expand
+        tenderCards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('expanded');
+            });
+        });
+
+        function filterAndSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            tenderCards.forEach(card => {
+                const title = card.dataset.title.toLowerCase();
+                const source = card.dataset.source;
+                const deadline = card.dataset.deadline;
+                const value = parseFloat(card.dataset.value);
+                const text = card.textContent.toLowerCase();
+
+                let matchesSearch = text.includes(searchTerm);
+                let matchesFilter = true;
+
+                if (currentFilter === 'cf') {
+                    matchesFilter = source === 'cf';
+                } else if (currentFilter === 'ft') {
+                    matchesFilter = source === 'ft';
+                } else if (currentFilter === 'urgent') {
+                    // Check if deadline is within 3 days
+                    const deadlineDate = new Date(deadline);
+                    const today = new Date();
+                    const daysUntil = (deadlineDate - today) / (1000 * 60 * 60 * 24);
+                    matchesFilter = daysUntil <= 3;
+                } else if (currentFilter === 'high-value') {
+                    matchesFilter = value > 100000;
+                }
+
+                card.style.display = (matchesSearch && matchesFilter) ? 'block' : 'none';
+            });
+        }
+
+        function sortTenders() {
+            const sortBy = sortSelect.value;
+            const feed = document.getElementById('tenderFeed');
+            const cardsArray = Array.from(tenderCards);
+
+            cardsArray.sort((a, b) => {
+                if (sortBy === 'deadline') {
+                    return new Date(a.dataset.deadline) - new Date(b.dataset.deadline);
+                } else if (sortBy === 'value') {
+                    return parseFloat(b.dataset.value) - parseFloat(a.dataset.value);
+                } else if (sortBy === 'title') {
+                    return a.dataset.title.localeCompare(b.dataset.title);
+                }
+                return 0; // newest (default order)
+            });
+
+            cardsArray.forEach(card => feed.appendChild(card));
+        }
+
+        // Add deadline badges dynamically
+        tenderCards.forEach(card => {
+            const deadline = card.dataset.deadline;
+            if (deadline) {
+                const deadlineDate = new Date(deadline);
+                const today = new Date();
+                const daysUntil = Math.ceil((deadlineDate - today) / (1000 * 60 * 60 * 24));
+
+                const metaDiv = card.querySelector('.tender-meta');
+                const badge = document.createElement('div');
+                badge.className = 'deadline-badge';
+
+                if (daysUntil <= 2) {
+                    badge.className += ' deadline-urgent';
+                    badge.textContent = `🔥 ${daysUntil} days left`;
+                } else if (daysUntil <= 7) {
+                    badge.className += ' deadline-soon';
+                    badge.textContent = `⚡ ${daysUntil} days left`;
+                } else {
+                    badge.className += ' deadline-normal';
+                    badge.textContent = `✓ ${daysUntil} days left`;
+                }
+
+                metaDiv.appendChild(badge);
+            }
+        });
+    </script>
+</body>
+</html>
